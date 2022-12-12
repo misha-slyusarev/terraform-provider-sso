@@ -5,7 +5,7 @@ I experimented with writing a Terraform provider for SSO configuration. Original
 This is an excellent example of what I'm talking about https://github.com/prodapt-cloud/TerraformRepo/blob/main/AWS/ApplicationIntegration/terraform-sso/modules/permission-sets/main.tf#L44
 
 But it turned out Terraform SDKv2 doesn't allow passing information between a plugin and Terraform core
-in the form of a map, so I cannot use the output of a plugin in the `for_each` meta argument of a resource, and I still had to do some mapping in the locals section (https://github.com/misha-slyusarev/terraform-provider-sso/blob/main/main.tf#L70).
+in the form of a map of objects, so I cannot use the output of a plugin in the `for_each` meta argument of a resource, and I still had to do some mapping in the locals section (https://github.com/misha-slyusarev/terraform-provider-sso/blob/main/main.tf#L70).
 
 But it was fun to play around with building a Terraform provider.
 
