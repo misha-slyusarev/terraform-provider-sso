@@ -7,7 +7,9 @@ This is an excellent example of what I'm talking about https://github.com/prodap
 But it turned out Terraform SDKv2 doesn't allow passing information between a plugin and Terraform core
 in the form of a map of objects, so I cannot use the output of a plugin in the `for_each` meta argument of a resource, and I still had to do some mapping in the locals section (https://github.com/misha-slyusarev/terraform-provider-sso/blob/main/main.tf#L70).
 
-But it was fun to play around with building a Terraform provider.
+I also wanted to try to implment the "based on" functionality when one permission set could be based on another one.
+
+Not everything worked out, but it was fun to play around with building my own Terraform provider.
 
 ## Development
 You will need to set up the development overrides configuration to be able to test locally. Create `.terraformrc` in your HOME folder and use the following example. Replace the override path with the path to wherever you cloned the repository.
