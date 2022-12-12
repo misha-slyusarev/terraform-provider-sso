@@ -6,12 +6,14 @@ But it turned out Terraform SDKv2 doesn't allow passing information between a pl
 in a form of a map, so the output of a plugin cannot be used in for_each meta argument of a resource and I still had to so some mapping
 in the locals section.
 
+Here is an example of such mapping https://github.com/misha-slyusarev/terraform-provider-sso/blob/main/main.tf#L70
+
 ## Development
 You will need to set up the development overrides configuration to be able to test locally. Create `.terraformrc` in your HOME folder and use the following example. Replace the override path with the path to wherever you cloned the repository.
 ```
 provider_installation {
 	dev_overrides {
-		"mysso" = "/Users/mikhail/terraform-provider-sso/"
+		"mysso" = "/Users/you/terraform-provider-sso/"
 	}
 
 	direct {}
