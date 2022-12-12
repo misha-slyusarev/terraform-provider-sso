@@ -1,12 +1,13 @@
 # terraform-provider-sso
-I experimented with writing a Terraform provider for SSO configuration. Originally I wanted to reduce the amount of logic
-defined in the locals section as normally it would be used to prepare a number of maps that will be used later to create resources.
+
+I experimented with writing a Terraform provider for SSO configuration. Originally I wanted to reduce the amount of logic defined in the locals section. It is sometimes used to perform some actions under the guise of defining a variable which is an ugly way of getting around the declarative nature of HCL. 
+
+This is an excellent example of what I'm talking about https://github.com/prodapt-cloud/TerraformRepo/blob/main/AWS/ApplicationIntegration/terraform-sso/modules/permission-sets/main.tf#L44
 
 But it turned out Terraform SDKv2 doesn't allow passing information between a plugin and Terraform core
-in a form of a map, so the output of a plugin cannot be used in for_each meta argument of a resource and I still had to so some mapping
-in the locals section.
+in the form of a map, so I cannot use the output of a plugin in the `for_each` meta argument of a resource, and I still had to do some mapping in the locals section (https://github.com/misha-slyusarev/terraform-provider-sso/blob/main/main.tf#L70).
 
-Here is an example of such mapping https://github.com/misha-slyusarev/terraform-provider-sso/blob/main/main.tf#L70
+But it was fun to play around with building a Terraform provider.
 
 ## Development
 You will need to set up the development overrides configuration to be able to test locally. Create `.terraformrc` in your HOME folder and use the following example. Replace the override path with the path to wherever you cloned the repository.
